@@ -1,0 +1,37 @@
+@mixin grad ($start, $from, $to, $f_image: 'images/fallback-gradient.png') {
+
+  $points_v: 0% 100%;
+  $points_h: 0% 0%;
+
+  @if $start == left {
+    $points_v: 0% 0%;
+    $points_h: 0% 100%;
+  } @else if $start == bottom {
+    $points_v: 100% 0%;
+    $points_h: 0% 0%;
+  } @else if $start == right {
+    $points_v: 0% 0%;
+    $points_h: 100% 0%;
+  }
+
+  background-color: $from;
+  background-image: url($f_image);
+  background-image: -webkit-gradient(linear, $points_h, $points_v, from($from), to($to));
+  background-image: -webkit-linear-gradient($start, $from, $to);
+  background-image: -moz-linear-gradient($start, $from, $to);
+  background-image: -ms-linear-gradient($start, $from, $to);
+  background-image: -o-linear-gradient($start, $from, $to);
+
+}
+
+@mixin trans ($prop, $dur, $amount) {
+
+  -moz-transition-property: $prop;
+  -moz-transition-duration: $dur;
+  -webkit-transition-property: $prop;
+  -webkit-transition-duration: $dur;
+  transition-property: $prop;
+  transition-duration: $dur;
+  #{$prop}: $amount;
+  
+}

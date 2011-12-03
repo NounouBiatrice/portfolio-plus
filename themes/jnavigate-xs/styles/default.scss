@@ -1,0 +1,150 @@
+@import 
+    '/wamp/www/jnavigate-demo/themes/jnavigate-xs/styles/reset'
+  , 'vars'
+  , 'mixins'
+  , 'elements'
+  , 'header'
+  , 'plugins';
+
+/* =Content areas
+----------------------------------------------------------------------------- */
+.page-content-area {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-section-wsb {
+  width: 530px;
+  float: left;
+}
+
+#main-content {
+  border-top: solid 1px #010204;
+}
+
+#main-shadow {
+  width: 960px;
+  padding: 0 10px;
+  background: url(images/content-shadow.png) repeat-y;
+}
+
+#main-wrap {
+  background: url(images/content-bg.png) center bottom no-repeat #d9d9d9;
+  padding: 50px;
+  border: solid 1px white;
+  border-bottom: none;
+  border-top: none;
+  box-shadow:inset 0 3px 3px #b1b2b2;
+  overflow: hidden;
+  //box-shadow: 0 0 8px #000;
+}
+
+#footer-lowlight {
+  border-top: solid 1px #010204;
+}
+
+#main-footer {
+  padding: 100px 0;
+  border-top: solid 1px #53585f;
+  border-bottom: solid 1px #494e54;
+  background: url(images/footer-noise.png) repeat #39414a;
+  text-align: center;
+  color: white;
+  text-shadow: 0 -1px #000;
+  font-family: 'Open sans', helvetica, sans-serif;
+  font-weight: 600;
+}
+
+/* =Pages
+----------------------------------------------------------------------------- */
+.documentation-list {
+  
+  li {
+  
+    margin: 0 0 30px;
+    overflow: hidden;
+    border-bottom: solid 1px #ccc;
+    
+    h3 {
+      padding: 0;
+      margin: 0 0 8px;
+      font: 1.4em/1em $mono;
+    }
+    
+  }
+  
+}
+
+
+/* =Sidebar 
+----------------------------------------------------------------------------- */
+#sidebar {
+
+  width: 280px;
+  margin: 0 0 0 580px;
+
+  ol {
+    margin: 0 0 20px;
+  }
+  
+}
+
+// docs
+.doc-link {
+
+  padding: 0;
+  margin: 0 0 10px;
+
+  a {
+    font: 1.1em/1em $mono;
+  }
+
+  p {
+    font-size: .85em;
+    line-height: 1em;
+    font-style: italic;
+    color: #aaa;
+    margin: 0;
+  }
+  
+
+}
+
+/* =syntax highlight 
+------------------------------------------------------------------------------*/
+/* desert scheme ported from vim to google prettify */
+pre { display: block; background-color: #333; line-height: 1.2em; }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+
+@media print {
+  pre { background-color: none }
+  pre .str, code .str { color: #060 }
+  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .com, code .com { color: #600; font-style: italic }
+  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .lit, code .lit { color: #044 }
+  pre .pun, code .pun { color: #440 }
+  pre .pln, code .pln { color: #000 }
+  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .atn, code .atn { color: #404 }
+  pre .atv, code .atv { color: #060 }
+}
