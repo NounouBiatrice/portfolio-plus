@@ -6,11 +6,11 @@
     
       <?php if ($loader->is_home_page()) : ?>
         
-        <h1 id="logo"><span>j</span>Navigate XS</h1>
+        <h1 id="logo"><span>j</span>Navigate - a powerful jQuery Ajax plugin</h1>
         
       <?php else : ?>
         
-        <div id="logo"><span>j</span>Navigate XS</div>
+        <div id="logo"><span>j</span>Navigate - a powerful jQuery Ajax plugin</div>
         
       <?php endif; ?>
   

@@ -119,6 +119,25 @@ class PageLoader {
     return ( strtolower($this->curr_page['page']) === 'home' );
     
   }
+
+
+  /**
+   * Getter for the class of a page
+   * 
+   * @param string $page Name of a page
+   */
+  public function page_class ($page = null) {
+    
+    $page = $page ? $this->pages[$page] : $this->curr_page;
+    
+    if (array_key_exists('css_class', $page)) {
+      echo $page['css_class'];
+      return;
+    }
+    
+    echo strtolower(preg_replace('/[^\w\d]/', '-', $page['page']));
+    
+  }
   
   
   /**
