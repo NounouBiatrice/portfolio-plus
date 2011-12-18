@@ -4,10 +4,18 @@
   , 'mixins'
   , 'elements'
   , 'header'
-  , 'plugins';
+  , 'plugins'
+  , 'home'
+  , 'docs';
 
 /* =Content areas
 ----------------------------------------------------------------------------- */
+#main-article {
+  overflow: hidden;
+  padding: 4px;
+}
+
+
 .page-content-area {
   width: 960px;
   margin: 0 auto;
@@ -17,7 +25,7 @@
 
 .main-section-wsb {
   width: 530px;
-  float: left;
+  float: left; 
 }
 
 #main-content {
@@ -46,6 +54,7 @@
 }
 
 #main-footer {
+  
   padding: 100px 0;
   border-top: solid 1px #53585f;
   border-bottom: solid 1px #494e54;
@@ -55,28 +64,40 @@
   text-shadow: 0 -1px #000;
   font-family: 'Open sans', helvetica, sans-serif;
   font-weight: 600;
-}
-
-/* =Pages
------------------------------------------------------------------------------ */
-.documentation-list {
   
-  li {
-  
-    margin: 0 0 30px;
-    overflow: hidden;
-    border-bottom: solid 1px #ccc;
-    
-    h3 {
-      padding: 0;
-      margin: 0 0 8px;
-      font: 1.4em/1em $mono;
-    }
-    
+  a {
+    color: white;
   }
   
 }
 
+#fork-me {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  &:hover {
+    border: none;
+  }
+  
+}
+
+#under-construction {
+  background: url(images/under-construction.png) center bottom no-repeat;
+  padding-bottom: 538px;
+}
+
+#portfolio-plus {
+  background: url(images/portfolio-page.png) center bottom no-repeat;
+  padding-bottom: 360px;
+}
+
+#not-ready {
+  width: 400px;
+  padding: 30px 0 0;
+  float: left;
+}
 
 /* =Sidebar 
 ----------------------------------------------------------------------------- */
@@ -84,6 +105,7 @@
 
   width: 280px;
   margin: 0 0 0 580px;
+  padding: 80px 0 0;
 
   ol {
     margin: 0 0 20px;
@@ -91,41 +113,20 @@
   
 }
 
-// docs
-.doc-link {
-
-  padding: 0;
-  margin: 0 0 10px;
-
-  a {
-    font: 1.1em/1em $mono;
-  }
-
-  p {
-    font-size: .85em;
-    line-height: 1em;
-    font-style: italic;
-    color: #aaa;
-    margin: 0;
-  }
-  
-
-}
-
 /* =syntax highlight 
 ------------------------------------------------------------------------------*/
 /* desert scheme ported from vim to google prettify */
-pre { display: block; background-color: #333; line-height: 1.2em; }
+pre { display: block; background-color: #333; line-height: 1.2em; overflow: auto }
 pre .nocode { background-color: none; color: #000 }
 pre .str { color: #ffa0a0 } /* string  - pink */
-pre .kwd { color: #f0e68c; font-weight: bold }
+pre .kwd { color: #f0e68c }
 pre .com { color: #87ceeb } /* comment - skyblue */
 pre .typ { color: #98fb98 } /* type    - lightgreen */
 pre .lit { color: #cd5c5c } /* literal - darkred */
 pre .pun { color: #fff }    /* punctuation */
 pre .pln { color: #fff }    /* plaintext */
-pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
-pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .tag { color: #f0e68c } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b } /* attribute name  - khaki */
 pre .atv { color: #ffa0a0 } /* attribute value - pink */
 pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 
@@ -138,13 +139,13 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 @media print {
   pre { background-color: none }
   pre .str, code .str { color: #060 }
-  pre .kwd, code .kwd { color: #006; font-weight: bold }
+  pre .kwd, code .kwd { color: #006 }
   pre .com, code .com { color: #600; font-style: italic }
-  pre .typ, code .typ { color: #404; font-weight: bold }
+  pre .typ, code .typ { color: #404 }
   pre .lit, code .lit { color: #044 }
   pre .pun, code .pun { color: #440 }
   pre .pln, code .pln { color: #000 }
-  pre .tag, code .tag { color: #006; font-weight: bold }
+  pre .tag, code .tag { color: #006 }
   pre .atn, code .atn { color: #404 }
   pre .atv, code .atv { color: #060 }
 }

@@ -41,7 +41,7 @@ class PageLoader {
     
     foreach ($this->ordered_page_keys as $key) {
       
-      $page = $this->pages[$key];
+      $page = $this->pages[$key];   
       $links .= '<' . $tag . ' id="page-' . $page_num++ . '"';
       
       if (strlen($li_class)) {
@@ -152,7 +152,7 @@ class PageLoader {
     
     if ($qs) { // have query string parameters
       
-      if ($qs['query']) {
+      if (array_key_exists('query', $qs)) {
         
         $ret .= '?';
         
@@ -164,7 +164,7 @@ class PageLoader {
         
       }
       
-      if ($qs['hashtag']) {
+      if (array_key_exists('hashtag', $qs)) {
         $ret .= '#' . $qs['hashtag'];
       }
       

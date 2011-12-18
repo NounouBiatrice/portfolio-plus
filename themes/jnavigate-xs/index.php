@@ -10,11 +10,11 @@
   
   <link rel="stylesheet" type="text/css" media="screen" href="<?php $loader->theme_url(true); ?>styles/default.css">
   
-  <?php if ($loader->is_home_page()) : ?>
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php $loader->theme_url(true); ?>styles/home.css">
-  <?php endif; ?>
-  
   <script src="<?php $loader->theme_url(true); ?>js/modernizr.min.js"></script>
+  
+  <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php $loader->theme_url(true); ?>styles/ie.css">
+  <![endif]-->
 
   </head>
 

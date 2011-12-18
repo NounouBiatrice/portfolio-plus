@@ -67,3 +67,15 @@ code {
   font: 1.1em/1em $mono;
   color: $code_color;
 }
+
+// special elems
+
+.ftr-hdr {
+  font-style: italic;
+  font-size: 3em;
+}
+
+.ftr-intro {
+  font: italic 1.8em/1.3em $serif;
+  color: #2878c3;
+}

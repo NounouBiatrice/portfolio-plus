@@ -1,6 +1,17 @@
 <?php $page_url = $loader->page_link_url(); ?>
 
 <nav id="documentation-overview">
+  
+  <h3>Usage</h3>
+  
+  <ol>
+    
+    <li class="doc-link">
+      <a class="jnav-internal" href="<?php echo $loader->page_link_url(null, array('query' => array('example' => 'usage'))); ?>">Example usage</a>
+      <p>Example of using jNavigate with PHP.</p>
+    </li>
+    
+  </ol>
 
   <h3>Options</h3>
 

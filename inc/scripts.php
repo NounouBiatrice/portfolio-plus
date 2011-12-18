@@ -1,8 +1,8 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="js/jnavigate.jquery.js"></script>
+<script src="js/jnavigate.jquery.min.js"></script>
 
 <!--[if IE]>
-  <script src="js/history.js"></script>"
+  <script src="js/history.js"></script>
 <![endif]-->
 
 <?php @include $loader->theme_url() . '/js/scripts.php'; ?>
@@ -34,10 +34,12 @@
     if (data && "jnavlasttrigger" in data) {
       
       $trigger = data['jnavlasttrigger'];
-      $(".main-nav-link").removeClass("current");
       
       if ($trigger.hasClass("main-nav-link")) {
+        
+        $(".main-nav-link").removeClass("current");
         $trigger.addClass("current");
+        
       }
       
       tdata = $trigger.data();

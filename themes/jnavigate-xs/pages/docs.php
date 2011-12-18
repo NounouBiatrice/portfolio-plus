@@ -1,7 +1,7 @@
 <?php
 /**
  * @link_text: Documentation
- * @page_title: jNavigate Docs
+ * @page_title: jNavigate documentation
  * @menu_order: 2
  * 
  */
@@ -11,7 +11,7 @@
 
   <section id="documentation-item" class="main-section-wsb">
     
-    <a class="jnav-internal" href="<?php echo $loader->page_link_url('docs', array('hashtag' => $_GET['example'], 'query' => array('one' => 'two'))); ?>">Back to main docs</a>
+    <a class="jnav-internal bk-lnk" href="<?php echo $loader->page_link_url('docs', array('hashtag' => $_GET['example'], 'query' => array('one' => 'two'))); ?>">&laquo; Back to documentation home</a>
 
     <?php $loader->partial('docs/' . $_GET['example'] . '.php'); ?>
 
@@ -25,22 +25,31 @@
 
     <p>
       jNavigate enables a content area to be loaded asynchronously from links and form controls both internal and external to that 
-      content area. jNavigate also provides utility methods for loaded pre-determined URLs into a content area with the addition of 
-      dynamic loading overlays. Here lies the <abbr title="Application Programming Interface">API</abbr> for jNavigate with descriptions
+      content area. jNavigate also provides utility methods for loading resources into a content area with the addition of 
+      dynamic loading overlays. This page details the <abbr title="Application Programming Interface">API</abbr> for jNavigate with descriptions
       for all of it's options, events and methods.
     </p>
 
+    <h2 id="usage">Usage</h2>
+    
     <p>
-      To use jNavigate with all of it's default options simply enable your content area as you would any other jQuery plugin. In this
-      example <code>"#my-content-section"</code> is an example selector for a HTML element. See the 
+      To use jNavigate with it's default options simply enable your content area as you would any other jQuery plugin. In the
+      basic example below <code>"#my-content-section"</code> is an example selector for a content area. See the 
       <a href="http://api.jquery.com/category/selectors/">jQuery selector documentation</a> if you need help with selectors.
     </p>
-
+    
 <pre class="prettyprint lang-js">
 <code class="language-javascript">
   $("#my-content-section").jNavigate();
 </code>
 </pre>
+  
+    <p>
+      A mored detailed example shown with a simple PHP setup for a single paged portfolio site can be 
+      <a href="<?php echo $loader->page_link_url(null, array('query' => array('example' => 'usage'))); ?>" class="jnav-internal">found here</a>. Alternatively, if you would like
+      a free, ready built solution with plugin options such as contact forms and image galleries be sure to
+      checkout <a href="<?php echo $loader->page_link_url('portfolio'); ?>">Portfolio plus</a>.
+    </p>
 
     <h2>Option reference</h2>
 
@@ -260,3 +269,5 @@
 <aside id="sidebar">
   <?php $loader->partial('docs-sidebar.php'); ?>
 </aside>
+
+<?php Plugins::display('download-counter'); ?>

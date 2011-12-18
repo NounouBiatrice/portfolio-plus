@@ -2,7 +2,7 @@
 #downloads {
   position: absolute;
   top: 44px;
-  right: 44px;
+  right: 52px;
   padding: 6px;
   overflow: hidden;
 }
@@ -21,10 +21,13 @@
   
   span {
     font-size: .8em;
+    display: block;
+    padding: 0 0 4px;
+    line-height: .8em;
   }
   
   &.green {
-    background-color: #0f0;
+    background-color: #23c52e;
   }
   
   
@@ -40,7 +43,7 @@
 }
 
 // features
-#ftrs {
+/*#ftrs {
   
   border-bottom: solid 1px #aaa;
   width: 100%;
@@ -75,6 +78,39 @@
       padding: 10px;
     }
       
+  }
+  
+}*/
+
+#ftr-lst {
+  
+  margin: 2em 0 0;
+  
+  dt {
+    
+    font: italic 2em/1em $serif;
+    color: #0F1923;
+    position: relative;
+    margin: 0 0 0 60px;
+    
+    &:before {
+      content: "*";
+      font: bolder 100px/1em $mono;
+      color: orange;
+      display: block;
+      width: 4em;
+      height: 4em;
+      position: absolute;
+      top: -30px;
+      left: -60px;
+      text-shadow: 2px 3px #aaa;
+    }
+    
+  }
+  
+  dd {
+    font-size: 1.2em;
+    margin: .4em 0 2em 60px;
   }
   
 }
