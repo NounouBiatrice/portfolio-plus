@@ -11,10 +11,8 @@
 
   $(function () {
 
-    prettyPrint(); // syntax highlighting
-    
-    <?php Plugins::pageload_scripts() ?>
-    
+    prettyPrint();
+
     $("#main-article").jNavigate({
         extTrigger: '.jnav-external'
       , intTrigger: '.jnav-internal'
@@ -24,34 +22,34 @@
       , cacheDocumentTitle: true
       , loadingColor: "#D9D9D9"
     });
-    
+
   });
-  
+
   var updatePageInfo = function (html) {
-    
+
     var data = $(this).data();
-    
+
     if (data && "jnavlasttrigger" in data) {
-      
+
       $trigger = data['jnavlasttrigger'];
-      
+
       if ($trigger.hasClass("main-nav-link")) {
-        
+
         $(".main-nav-link").removeClass("current");
         $trigger.addClass("current");
-        
+
       }
-      
+
       tdata = $trigger.data();
-      
+
       if (tdata && tdata.pagetitle) {
        document.title = tdata.pagetitle;
       }
-      
+
     }
 
     prettyPrint(); // syntax highlighting
 
   };
-  
+
 </script>

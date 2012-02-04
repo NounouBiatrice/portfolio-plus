@@ -1,16 +1,16 @@
 <?php $page_url = $loader->page_link_url(); ?>
 
 <nav id="documentation-overview">
-  
+
   <h3>Usage</h3>
-  
+
   <ol>
-    
+
     <li class="doc-link">
       <a class="jnav-internal" href="<?php echo $loader->page_link_url(null, array('query' => array('example' => 'usage'))); ?>">Example usage</a>
       <p>Example of using jNavigate with PHP.</p>
     </li>
-    
+
   </ol>
 
   <h3>Options</h3>
@@ -31,12 +31,12 @@
       <a href="<?php echo $page_url . '#switchcontent'; ?>">switchContent</a>
       <p>Enable replacement of the content area html.</p>
     </li>
-    
+
     <li class="doc-link">
       <a href="<?php echo $page_url . '#scrolltoposition'; ?>">scrollToPosition</a>
       <p>Scroll the browser window after loading the content.</p>
     </li>
-    
+
     <li class="doc-link">
       <a href="<?php echo $page_url . '#scrollspeed'; ?>">scrollSpeed</a>
       <p>The speed at which to scroll to position</p>
