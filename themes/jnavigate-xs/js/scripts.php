@@ -1,4 +1,4 @@
-<script src="js/prettify.js"></script>
+<script src="<?php $loader->theme_url(true); ?>js/prettify.js"></script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

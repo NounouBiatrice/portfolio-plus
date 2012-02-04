@@ -99,6 +99,25 @@
   float: left;
 }
 
+/* =Plugins
+---------------------------------------------------------------------------- */
+#contact-form div {
+  margin: 0 0 20px;
+}
+
+.cntct-frm-fld {
+  font-size: 1.8em;
+  display: block;
+  width: 94%;
+  padding: .4em 2%;
+  border: solid 1px #999;
+}
+
+.cnt-frm-err {
+  color: red;
+  font-style: italic;
+}
+
 /* =Sidebar 
 ----------------------------------------------------------------------------- */
 #sidebar {

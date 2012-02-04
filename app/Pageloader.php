@@ -219,6 +219,10 @@ class PageLoader {
   public function partial ($path) {
     
     $loader = $this; // for consistency in templates
+
+    if (preg_match('/\.[A-Za-z]{2,4}$/', $path) === 0) {
+      $path = $path . '.php';
+    }
     
     if (file_exists($this->theme_url() . 'partials/' . $path)) { // tidy
       include $this->theme_url() . 'partials/' . $path;

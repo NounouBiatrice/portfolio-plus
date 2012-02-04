@@ -8,9 +8,13 @@
 
 <div>
 
-  <h1>Contact</h1>
 
-  <?php Plugins::display('ContactForm'); ?>
+  <section class="main-section-wsb">
+
+    <h1>Contact</h1>
+
+    <?php Plugins::display('ContactForm'); ?>
+  </section>
 
   <aside id="sidebar">
     <?php $loader->partial('contact-sidebar'); ?>

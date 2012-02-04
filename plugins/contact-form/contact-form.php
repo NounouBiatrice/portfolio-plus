@@ -11,20 +11,20 @@
 
     <div>
       <label>Your name</label>
-      <input type="text" name="user-name" value="">
       <?php $cf->error_msg('user-name'); ?>
+      <input class="cntct-frm-fld" type="text" name="user-name" value="">
     </div>
 
     <div>
       <label>Your email</label>
-      <input type="email" name="user-email" value="">
       <?php $cf->error_msg('user-email'); ?>
+      <input class="cntct-frm-fld" type="email" name="user-email" value="">
     </div>
 
     <div>
       <label>Your message</label>
-      <textarea name="user-message"></textarea>
       <?php $cf->error_msg('user-message'); ?>
+      <textarea cols="30" rows="8" class="cntct-frm-fld" name="user-message"></textarea>
     </div>
 
     <div>

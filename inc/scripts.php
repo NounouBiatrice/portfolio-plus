@@ -1,5 +1,5 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="js/jnavigate.jquery.min.js"></script>
+<script src="app/js/jnavigate.jquery.min.js"></script>
 
 <!--[if IE]>
   <script src="js/history.js"></script>

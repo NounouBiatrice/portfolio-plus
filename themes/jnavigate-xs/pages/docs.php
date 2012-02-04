@@ -270,4 +270,4 @@
   <?php $loader->partial('docs-sidebar.php'); ?>
 </aside>
 
-<?php Plugins::display('download-counter'); ?>
+<?php #Plugins::display('download-counter'); ?>
