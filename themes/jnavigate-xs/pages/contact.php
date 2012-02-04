@@ -12,4 +12,8 @@
 
   <?php Plugins::display('ContactForm'); ?>
 
+  <aside id="sidebar">
+    <?php $loader->partial('contact-sidebar'); ?>
+  </aside>
+
 </div>

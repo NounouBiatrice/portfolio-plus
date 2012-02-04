@@ -146,22 +146,24 @@ class PageLoader {
    * @param string $page Name of the page to get the URI
    * @return string
    */
-  public function page_link_url ($page = null, $qs = null) {
+  public function page_link_url ($page = null, $qs = null, $ic = false) {
     
-    $ret = $page ? $this->pages[$page]['path'] : $this->curr_page['path'];
+    $ret = preg_replace(
+        '/\?.*$/'
+      , ''
+      , $page ? $this->pages[$page]['path'] : $this->curr_page['path']
+    );
     
     if ($qs) { // have query string parameters
       
       if (array_key_exists('query', $qs)) {
-        
-        $ret .= '?';
-        
-        foreach (array_keys($qs['query']) as $key) {
-          $ret .= $key . '=' . $qs['query'][$key] . '&';
+
+        if ($ic) {
+          $qs['query'] = $this->url_query_params($qs['query']);
         }
-        
-        $ret = substr_replace($ret, '', -1);
-        
+
+        $ret .= '?' . http_build_query($qs['query']);
+
       }
       
       if (array_key_exists('hashtag', $qs)) {
@@ -172,6 +174,25 @@ class PageLoader {
     
     return $ret;
     
+  }
+
+  public function url_query_params ($additional = null) {
+
+    $ret = array();
+
+    foreach(explode('&', $_SERVER['QUERY_STRING']) as $qp) {
+
+      $key_val = explode('=', $qp);
+      $ret[$key_val[0]] = $key_val[1]; // TODO check exists
+
+    }
+
+    if ($additional) {
+      $ret = array_merge($ret, $additional);
+    }
+    
+    return $ret;
+
   }
   
   
@@ -234,7 +255,7 @@ class PageLoader {
   
   // set the current page
   private function set_page ($page) {
-    
+
     if (array_key_exists($page, $this->pages)) {
       
       $this->curr_page = $this->pages[$page];

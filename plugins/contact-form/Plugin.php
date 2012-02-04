@@ -32,7 +32,7 @@ class ContactForm extends Plugin {
       }
 
     }
-
+    
     include 'contact-form.php';
 
   }
@@ -70,6 +70,14 @@ class ContactForm extends Plugin {
 
     global $loader;
 
+    $qs = array('query' => array(
+      'msg-sent' => 1
+    ));
+
+    if (array_key_exists('jnavigate', $_POST)) {
+      $qs['query']['jnavigate'] = 1;
+    }
+
     ob_start();
     include 'templates/'.$this->template;
     $mb = ob_get_clean();
@@ -83,9 +91,7 @@ class ContactForm extends Plugin {
     );
 
     $mailer->send();
-    header('location:'.$loader->page_link_url(null, array('query' => array(
-      'msg-sent' => 1
-    ))));
+    header('location:'.$loader->page_link_url(null, $qs, true));
 
   }
 
