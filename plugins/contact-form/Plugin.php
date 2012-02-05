@@ -32,7 +32,7 @@ class ContactForm extends Plugin {
       }
 
     }
-    
+
     include 'contact-form.php';
 
   }
@@ -42,6 +42,33 @@ class ContactForm extends Plugin {
     if (array_key_exists($field, $this->errors)) {
       echo '<span class="cnt-frm-err">'.$this->errors[$field].'</span>';
     }
+
+  }
+
+
+  public function field_value ($field) {
+
+    $val = '';
+
+    if (array_key_exists($field, $_POST)) {
+      $val = $_POST[$field];
+    }
+
+    echo $val;
+
+  }
+
+
+  public function has_errors () {
+
+    return count($this->errors) !== 0;
+
+  }
+
+
+  public function message_sent () {
+
+    return array_key_exists('msg-snt', $_GET);
 
   }
 
@@ -59,7 +86,7 @@ class ContactForm extends Plugin {
       $this->errors['user-email'] = 'Please enter a valid email address';
     }
 
-    if (strlen(trim($email)) === 0) {
+    if (strlen(trim($message)) === 0) {
       $this->errors['user-message'] = "Please enter a message";
     }
 
@@ -71,7 +98,7 @@ class ContactForm extends Plugin {
     global $loader;
 
     $qs = array('query' => array(
-      'msg-sent' => 1
+      'msg-snt' => 1
     ));
 
     if (array_key_exists('jnavigate', $_POST)) {

@@ -6,6 +6,8 @@ abstract class Plugin {
 
   public function __construct () {
 
+    global $loader;
+
     Plugins::register($this);
 
   }

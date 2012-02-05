@@ -35,7 +35,7 @@ class Plugins {
 
     try {
 
-      $plugin = new $plugin();
+      $plugin = self::get($plugin);
       $plugin->display($loader, $options);
 
     }
@@ -43,6 +43,17 @@ class Plugins {
     catch (Exception $ex) {
       echo $ex->get_message(); // FIXME log error
     }
+
+  }
+
+
+  public static function get ($plugin) {
+
+    if (array_key_exists($plugin, self::$plugins)) {
+      return self::$plugins[$plugin_id];
+    }
+
+    return new $plugin();
 
   }
 

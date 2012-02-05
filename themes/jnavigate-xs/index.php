@@ -7,6 +7,7 @@
   <title><?php $loader->page_title(); ?></title>
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" media="screen" href="app/styles/admin.css">
   <link rel="stylesheet" type="text/css" media="screen" href="<?php $loader->theme_url(true); ?>styles/default.css">
 
   <script src="<?php $loader->theme_url(true); ?>js/modernizr.min.js"></script>
