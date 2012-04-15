@@ -25,6 +25,6 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?php $loader->theme_url(true) ?>js/lib/jquery-1.7.2.min.js"><\/script>')</script>
-  <?php $loader::javascript() ?>
+  <?php $loader->javascript() ?>
 </body>
 </html>
