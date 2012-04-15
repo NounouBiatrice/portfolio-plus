@@ -6,6 +6,9 @@
  */
 ?>
 
-<h2>Home page</h2>
+<h2>Express website engine</h2>
 
-<?php Plugins::display("Twitter") ?>
+<p>
+  <b>Portfolio+</b> is a very simple website engine designed to make it easy
+  for non-technical professionals to set up their online portfolio.
+</p>

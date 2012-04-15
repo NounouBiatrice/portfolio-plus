@@ -15,13 +15,29 @@
 
 <body>
 
-  <?php $loader->partial('header.php') ?>
+  <header>
+    <?php if ($loader->is_home_page()) : ?>
+      <h1>Portfolio+</h1>
+    <?php else : ?>
+      <div>Portfolio+</div>
+    <?php endif ?>
+  </header>
 
-  <article id="main-article">
-    <?php $loader->view(); ?>
-  </article>
+  <nav>
+    <ol><?php $loader->page_links() ?></ol>
+  </nav>
 
-  <?php $loader->partial('footer.php') ?>
+  <div role="main" id="mn">
+
+    <article id="main-article">
+      <?php $loader->view(); ?>
+    </article>
+
+  </div>
+
+  <footer>
+    &copy;2012 &lt;your business name&gt;
+  </footer>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="<?php $loader->theme_url(true) ?>js/lib/jquery-1.7.2.min.js"><\/script>')</script>
