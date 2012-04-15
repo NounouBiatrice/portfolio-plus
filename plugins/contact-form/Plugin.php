@@ -2,7 +2,6 @@
 
 class ContactForm extends Plugin {
 
-  protected $plugin_id = "contact-form";
   private
       $from_address
     , $to_address
@@ -12,7 +11,7 @@ class ContactForm extends Plugin {
 
   // :public api
 
-  public function display ($loader, $options) {
+  public function display($loader, $options) {
 
     $cf = $this;
 
@@ -37,16 +36,16 @@ class ContactForm extends Plugin {
 
   }
 
-  public function error_msg ($field) {
+  public function error_msg($field) {
 
     if (array_key_exists($field, $this->errors)) {
-      echo '<span class="cnt-frm-err">'.$this->errors[$field].'</span>';
+      echo '<span class="ct-fm-error">'.$this->errors[$field].'</span>';
     }
 
   }
 
 
-  public function field_value ($field) {
+  public function field_value($field) {
 
     $val = '';
 
@@ -59,24 +58,29 @@ class ContactForm extends Plugin {
   }
 
 
-  public function has_errors () {
+  public function has_errors() {
 
     return count($this->errors) !== 0;
 
   }
 
 
-  public function message_sent () {
+  public function message_sent() {
 
     return array_key_exists('msg-snt', $_GET);
 
   }
 
 
+  public function js() {
+    return "contact-form/js/contact-form.js";
+  }
+
+
   // :private
 
   // validates the form submission
-  private function validate ($username, $email, $message) {
+  private function validate($username, $email, $message) {
 
     if (strlen(trim($username)) === 0) {
       $this->errors['user-name'] = 'Please enter your name';
@@ -93,7 +97,7 @@ class ContactForm extends Plugin {
   }
 
   // builds the template and sednds the email
-  private function send ($username, $email, $message) {
+  private function send($username, $email, $message) {
 
     global $loader;
 
@@ -106,7 +110,7 @@ class ContactForm extends Plugin {
     }
 
     ob_start();
-    include 'templates/'.$this->template;
+    include 'email-templates/'.$this->template;
     $mb = ob_get_clean();
 
     $mailer = new Mailer(

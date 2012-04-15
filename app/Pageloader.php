@@ -15,11 +15,13 @@ class PageLoader {
     , $ordered_page_keys; // Order pages for site navigation
 
 
-  public function __construct ($page) {
+  public function __construct($page) {
 
-    $this->pages = array();
-    $this->load_pages();
-    $this->set_page($page);
+    if (!CACHE_ENABLED) {
+      $this->pages = array();
+      $this->load_pages();
+      $this->set_page($page);
+    }
 
   }
 
@@ -34,7 +36,7 @@ class PageLoader {
    * @param string $tag HTML tag to use for the list items.
    *
    */
-  public function page_links ($li_class = '', $a_class = '', $tag = 'li') {
+  public function page_links($li_class = '', $a_class = '', $tag = 'li') {
 
     $links = '';
     $page_num = 1;
@@ -53,7 +55,6 @@ class PageLoader {
       if ($this->curr_page['page'] === $page['page']) {
         $links .= 'class="' . trim('current ' . $a_class) . '" ';
       }
-
       elseif (strlen($a_class)) {
          $links .= 'class="' . $a_class . '" ';
       }
@@ -69,7 +70,6 @@ class PageLoader {
       if (array_key_exists('link_text', $page)) {
         $links .= $page['link_text'];
       }
-
       else {
         $links .= $page['page'];
       }
@@ -87,7 +87,7 @@ class PageLoader {
    * Renders the current page title from meta data or from tidied up file name
    * if no page title has been provided.
    */
-  public function page_title () {
+  public function page_title() {
 
     $title = array_key_exists('page_title', $this->curr_page) ?
       $this->curr_page['page_title'] :
@@ -101,10 +101,10 @@ class PageLoader {
   /**
    * Renders the current page.
    */
-  public function view () {
+  public function view() {
 
     $loader = $this; // for consistency in templates
-    include $this->theme_url().'/pages/' . $this->curr_page['page'] . '.php';
+    include 'pages/' . $this->curr_page['page'] . '.php';
 
   }
 
@@ -114,7 +114,7 @@ class PageLoader {
    *
    * @return boolean
    */
-  public function is_home_page () {
+  public function is_home_page() {
 
     return ( strtolower($this->curr_page['page']) === 'home' );
 
@@ -126,7 +126,7 @@ class PageLoader {
    *
    * @param string $page Name of a page
    */
-  public function page_class ($page = null) {
+  public function page_class($page = null) {
 
     $page = $page ? $this->pages[$page] : $this->curr_page;
 
@@ -146,7 +146,7 @@ class PageLoader {
    * @param string $page Name of the page to get the URI
    * @return string
    */
-  public function page_link_url ($page = null, $qs = null, $ic = false) {
+  public function page_link_url($page = null, $qs = null, $ic = false) {
 
     $ret = preg_replace(
         '/\?.*$/'
@@ -177,14 +177,14 @@ class PageLoader {
   }
 
 
-  public function url_query_params ($additional = null) {
+  public function url_query_params($additional = null) {
 
     $ret = array();
 
     foreach(explode('&', $_SERVER['QUERY_STRING']) as $qp) {
 
       $key_val = explode('=', $qp);
-      $ret[$key_val[0]] = $key_val[1]; // TODO check exists
+      $ret[$key_val[0]] = $key_val[1]; // TODO: check exists
 
     }
 
@@ -203,7 +203,7 @@ class PageLoader {
    * @param boolean $e Set true to render the URL false to return
    * @return string|void
    */
-  public function theme_url ($e = false) {
+  public function theme_url($e = false) {
 
     if ($e) echo 'themes/'.THEME.'/';
     else return 'themes/'.THEME."/";
@@ -217,7 +217,7 @@ class PageLoader {
    * @param string $path The path to the page partial from the themes base URL.
    *
    */
-  public function partial ($path) {
+  public function partial($path) {
 
     $loader = $this; // for consistency in templates
 
@@ -226,9 +226,9 @@ class PageLoader {
     }
 
     // should be here
-    if (file_exists($this->theme_url() . 'partials/' . $path)) {
+    if (file_exists('partials/' . $path)) {
 
-      include $this->theme_url() . 'partials/' . $path;
+      include 'partials/' . $path;
       return true;
 
     }
@@ -254,13 +254,13 @@ class PageLoader {
   }
 
 
-  /**
-   * Renders the pages JavaScript tags
-   */
-  public function scripts () {
+  public function javascript($use_jnavigate = true) {
 
-    $loader = $this;
-    include 'app/inc/scripts.php';
+    if ($use_jnavigate) {
+      echo '<script src="assets/js/jnavigate.jquery.min.js"></script>';
+    }
+
+    Plugins::javascript();
 
   }
 
@@ -268,7 +268,7 @@ class PageLoader {
   // :private
 
   // set the current page
-  private function set_page ($page) {
+  private function set_page($page) {
 
     if (array_key_exists($page, $this->pages)) {
 
@@ -283,9 +283,9 @@ class PageLoader {
 
 
   // read the theme directory and load pages
-  private function load_pages () {
+  private function load_pages() {
 
-    foreach (glob($this->theme_url().'/pages/*.php') as $page) {
+    foreach (glob('pages/*.php') as $page) {
 
       if ($fc = file_get_contents($page)) {
 
@@ -312,11 +312,11 @@ class PageLoader {
 
 
   // adds a page to the pages cache
-  private function add_page ($page, $info_str) {
+  private function add_page($page, $info_str) {
 
     $matches = array();
     $page_name = preg_replace(
-        '%^'.$this->theme_url().'/pages/([\w\d-]+).php%'
+        '%^\/?pages/([\w\d-]+).php%'
       , '\1'
       , $page
     );
@@ -359,7 +359,7 @@ class PageLoader {
 
 
   // sort pages based on their menu_order (if they have one)
-  private function sort_pages () {
+  private function sort_pages() {
 
     $keys = array_keys($this->pages);
     $num_pages = count($keys);

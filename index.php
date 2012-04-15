@@ -1,8 +1,8 @@
 <?php
 
   require 'site-config.php';
-  require 'app/plugin/Plugins.php';
-  require 'app/plugin/Plugin.php';
+  require 'app/Plugins.php';
+  require 'app/Plugin.php';
   require 'app/Pageloader.php';
   require 'app/Mailer.php';
 
