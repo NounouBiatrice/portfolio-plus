@@ -14,20 +14,21 @@
 </head>
 
 <body>
+<div id="all-cntnt">
 
   <header>
     <?php if ($loader->is_home_page()) : ?>
-      <h1>Portfolio+</h1>
+      <h1 id="logo">Portfolio<span>+</span></h1>
     <?php else : ?>
-      <div>Portfolio+</div>
+      <div id="logo">Portfolio<span>+</span></div>
     <?php endif ?>
   </header>
 
-  <nav>
-    <ol><?php $loader->page_links() ?></ol>
+  <nav id="page-links">
+    <ol><?php $loader->page_links('page-link') ?></ol>
   </nav>
 
-  <div role="main" id="mn">
+  <div role="main" id="main">
 
     <article id="main-article">
       <?php $loader->view(); ?>
@@ -36,11 +37,12 @@
   </div>
 
   <footer>
-    &copy;2012 &lt;your business name&gt;
+    &copy;2012 &lt;your name&gt;
   </footer>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="<?php $loader->theme_url(true) ?>js/lib/jquery-1.7.2.min.js"><\/script>')</script>
-  <?php $loader->javascript() ?>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php $loader->theme_url(true) ?>js/lib/jquery-1.7.2.min.js"><\/script>')</script>
+<?php $loader->javascript() ?>
 </body>
 </html>

@@ -6,9 +6,17 @@
  */
 ?>
 
-<h2>Express website engine</h2>
+<section id="content">
 
-<p>
-  <b>Portfolio+</b> is a very simple website engine designed to make it easy
-  for non-technical professionals to set up their online portfolio.
-</p>
+  <h2>Express website engine</h2>
+
+  <p>
+    <b>Portfolio+</b> is a very simple website engine designed to make it easy
+    for non-technical professionals to set up their online portfolio.
+  </p>
+
+
+
+</section>
+
+<?php $loader->partial("sidebar"); ?>
