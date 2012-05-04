@@ -76,7 +76,7 @@
         tmp = tmp.replace( // URIs
           /(https?:\/\/[^\s:]+)/gi,"<a target=\"_blank\" href=\"$1\">$1</a>"
         );
-        tmp = tmp.replace( // mentions 
+        tmp = tmp.replace( // mentions
             /(@(\w+))/g
           , "<a class=\"twtr-action-link twtr-large-win\" target=\"_blank\" " +
             "href=\"http://twitter.com/intent/user?screen_name=$2\">$1</a>"
@@ -90,8 +90,8 @@
         $d
           .addClass("twtr-tweet-date")
           .html(
-            "<a href=\"http://twitter.com/" + tw.user.screen_name + 
-            "/status/" + tw.id_str + "\" target=\"_blank\">" + 
+            "<a href=\"http://twitter.com/" + tw.user.screen_name +
+            "/status/" + tw.id_str + "\" target=\"_blank\">" +
             prettyDate(tw.created_at) + "</a>"
           );
         $li
@@ -129,17 +129,17 @@
       , retweet = document.createElement("a")
       , fav = document.createElement("a")
       , reply = document.createElement("a");
-    reply.href = 
+    reply.href =
       "http://twitter.com/intent/tweet?in_reply_to=" + tw.id_str;
     reply.target = "_blank";
     reply.innerHTML = "reply";
     reply.className = "twtr-action-link";
-    retweet.href = 
+    retweet.href =
       "http://twitter.com/intent/retweet?tweet_id=" + tw.id_str;
     retweet.target = "_blank";
     retweet.innerHTML = "retweet";
     retweet.className = "twtr-action-link";
-    fav.href = 
+    fav.href =
       "http://twitter.com/intent/favorite?tweet_id=" + tw.id_str;
     fav.target = "_blank";
     fav.innerHTML = "favorite";
@@ -185,9 +185,9 @@
       , true
     );
   }
-  
+
   $.fn.twitter = function (method) {
-      
+
     if (methods[method]) {
       return methods[method].apply(
         this, Array.prototype.slice.call(arguments, 1)
@@ -195,7 +195,7 @@
     } else if (!method || typeof method == "object") {
       return methods.init.apply(this, arguments);
     }
-    
+
   };
 
   /*
@@ -210,10 +210,10 @@
     var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
       diff = (((new Date()).getTime() - date.getTime()) / 1000),
       day_diff = Math.floor(diff / 86400);
-        
+
     if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
       return;
-        
+
     return day_diff == 0 && (
         diff < 60 && "just now" ||
         diff < 120 && "1 minute ago" ||

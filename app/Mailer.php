@@ -6,7 +6,7 @@
  */
 class Mailer {
 
-	private
+  private
       $name
     , $sender
     , $recipient
@@ -15,23 +15,23 @@ class Mailer {
     , $headers;
 
 
-	public function __construct($n, $s, $r, $sb, $m) {
+  public function __construct($n, $s, $r, $sb, $m) {
 
-	  $this->name = $n;
-	  $this->sender = $s;
-		$this->recipient = $r;
-		$this->subject = $sb;
-		$this->message = $m;
+    $this->name = $n;
+    $this->sender = $s;
+    $this->recipient = $r;
+    $this->subject = $sb;
+    $this->message = $m;
 
-		$this->headers();
+    $this->headers();
 
-	}
+  }
 
 
-	/**
+  /**
    *
    */
-	public function send() {
+  public function send() {
 
     return mail(
         $this->recipient
@@ -40,7 +40,7 @@ class Mailer {
       , $this->headers
     );
 
-	}
+  }
 
 
   /**

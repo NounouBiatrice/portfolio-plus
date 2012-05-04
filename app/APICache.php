@@ -1,11 +1,11 @@
 <?php
 /*
-* Caches API calls to a local file which is updated on a 
+* Caches API calls to a local file which is updated on a
 * given time interval.
 */
 class API_cache {
-  
-  private 
+
+  private
       $update_interval // how often to update
     , $cache_file // file to save results to
     , $api_call; // API call (URL with params)
@@ -21,7 +21,7 @@ class API_cache {
    * update interval and returns cache contents
    */
   public function get_api_cache () {
-    if (!file_exists($this->cache_file) || 
+    if (!file_exists($this->cache_file) ||
         time() - filemtime($this->cache_file) > $this->update_interval) {
       $this->update_cache();
     }
@@ -34,14 +34,14 @@ class API_cache {
   public function get_expires_datetime () {
     if (file_exists($this->cache_file)) {
       return date (
-        'D, d M Y H:i:s \G\M\T', 
+        'D, d M Y H:i:s \G\M\T',
         filemtime($this->cache_file) + ($this->update_interval)
       );
     }
   }
 
   /*
-   * Makes the api call and updates the cache 
+   * Makes the api call and updates the cache
    */
   private function update_cache () {
     // update from api if past interval time
@@ -55,5 +55,5 @@ class API_cache {
       fclose($fp);
     }
   }
-  
+
 }

@@ -1,12 +1,12 @@
 <?php
 
   // Add your settings here ---------------------------------------------------!
-  
+
   $user_name = 'phil_parsons';
   $results_per_page = 4;
   $include_retweets = 1; // (1:Yes | 0:No)
-  $cache_results_for = 1; // in minutes 
-  
+  $cache_results_for = 1; // in minutes
+
   // Do not edit below this point ---------------------------------------------!
 
   require '../app/api-cache.php';
@@ -30,4 +30,4 @@
   header ('Content-length: ' . strlen($json_body));
   header ("Expires: " . $api_cache->get_expires_datetime());
   echo $json_body;
-  
+
